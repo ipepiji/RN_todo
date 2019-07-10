@@ -16,9 +16,10 @@ export default class SignUpScreen extends Component {
         }
     }
 
-    handleSubmit(){
+    handleSubmit = async () => {
         if(this.confirmPassword == this.password){
-            fetch('http://198.19.119.97:3333/api/v1/register', {
+            console.log(this.username)
+            fetch('https://05343f4d.ngrok.io/api/v1/register', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -33,7 +34,7 @@ export default class SignUpScreen extends Component {
             })
             .then((response) => response.json())
             .then((result) => {
-                console.log("Success!")
+                console.log(JSON.stringify(result))
             })
             .catch((error) =>{
                 console.error(error);
@@ -50,24 +51,29 @@ export default class SignUpScreen extends Component {
 
                     <TextInput style = {styles.input}
                     placeholder = "Username"
-                    onChangeText = {(username) => this.setState({username})}/>
+                    onChangeText = {(username) => this.setState({username})}
+                    value={this.state.username}/>
                     
                     <TextInput style = {styles.input}
                     placeholder = "Email"
-                    onChangeText = {(email) => this.setState({email})}/>
+                    onChangeText = {(email) => this.setState({email})}
+                    value={this.state.email}/>
 
                     <TextInput style = {styles.input}
                     placeholder = "Phone Number"
-                    onChangeText = {(phone) => this.setState({phone})}/>
+                    onChangeText = {(phone) => this.setState({phone})}
+                    value={this.state.phone}/>
 
                     <TextInput style = {styles.input}
                     placeholder = "Password"
                     onChangeText = {(password) => this.setState({password})}
+                    value={this.state.password}
                     secureTextEntry= {true}/>
 
                     <TextInput style = {styles.input}
                     placeholder = "Confirm Password"
                     onChangeText = {(confirmPassword) => this.setState({confirmPassword})}
+                    value={this.state.confirmPassword}
                     secureTextEntry= {true}/>
 
 
