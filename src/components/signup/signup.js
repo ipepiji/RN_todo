@@ -2,23 +2,24 @@ import React, { Component } from 'react'
 import { Text, ScrollView, TouchableOpacity,
      TextInput, KeyboardAvoidingView } from 'react-native';
 import styles from './style';
+import t from 'tcomb-form-native'
 
-export default class SignUpScreen extends Component {
+export default class SignUpScreen extends Component  {
 
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
-            email: '',
-            phone: '',
-            password: '',
-            confirmPassword: ''
+            username: null,
+            email: null,
+            phone: null,
+            password: null,
+            confirmPassword: null
         }
     }
 
     handleSubmit = async () => {
-        if(this.confirmPassword == this.password){
-            console.log(this.username)
+    
+        if(this.state.confirmPassword == this.state.password){
             fetch('https://05343f4d.ngrok.io/api/v1/register', {
                 method: 'POST',
                 headers: {
@@ -26,10 +27,10 @@ export default class SignUpScreen extends Component {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    username: this.username,
-                    email: this.email,
-                    phone: this.phone,
-                    password: this.password
+                    username: this.state.username,
+                    email: this.state.email,
+                    phone: this.state.phone,
+                    password: this.state.password
                 })
             })
             .then((response) => response.json())
@@ -42,6 +43,7 @@ export default class SignUpScreen extends Component {
         }
         else
             alert("Confirm password not same!")
+
     }
 
     render() {
@@ -53,7 +55,7 @@ export default class SignUpScreen extends Component {
                     placeholder = "Username"
                     onChangeText = {(username) => this.setState({username})}
                     value={this.state.username}/>
-                    
+
                     <TextInput style = {styles.input}
                     placeholder = "Email"
                     onChangeText = {(email) => this.setState({email})}
@@ -69,7 +71,7 @@ export default class SignUpScreen extends Component {
                     onChangeText = {(password) => this.setState({password})}
                     value={this.state.password}
                     secureTextEntry= {true}/>
-
+                    
                     <TextInput style = {styles.input}
                     placeholder = "Confirm Password"
                     onChangeText = {(confirmPassword) => this.setState({confirmPassword})}

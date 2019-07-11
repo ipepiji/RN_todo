@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, ScrollView, StyleSheet, TouchableOpacity,
+import { Text, ScrollView, TouchableOpacity,
      TextInput, KeyboardAvoidingView,
      Animated, Keyboard, Easing  } from 'react-native';
 import styles from './style';
