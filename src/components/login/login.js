@@ -52,7 +52,7 @@ export default class LoginScreen extends Component {
       
     render() {
         return (
-            <ScrollView>
+            <ScrollView keyboardShouldPersistTaps='always'>
                 <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
                         
                     <Animated.Image source={logo} style={{ height: this.imageHeight, width: this.imageWidth }} />

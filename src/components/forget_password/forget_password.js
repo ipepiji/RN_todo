@@ -8,7 +8,7 @@ export default class ForgetScreen extends Component {
       
     render() {
         return (
-            <ScrollView>
+            <ScrollView keyboardShouldPersistTaps='always'>
                 <KeyboardAvoidingView style={styles.container} behavior="padding" keyboardVerticalOffset={100}>
                 
                     <Text style={{ fontSize: 16, padding: 12, alignSelf: 'flex-start', paddingLeft: 20 }}>Please enter your email below:</Text>

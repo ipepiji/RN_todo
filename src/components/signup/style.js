@@ -4,16 +4,16 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'center',
-      paddingTop: 50
+      alignContent: 'center',
+      paddingTop: 30
     },
     btn: {
         backgroundColor: 'blue',
         borderColor: 'white',
-        width: "90%",
-        margin: 40,
+        width: "75%",
+        margin: 14,
         borderRadius: 10,
-        padding: 12,
+        padding: 15
     },
     btnText: {
         padding: 5,
